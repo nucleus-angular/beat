@@ -27,9 +27,8 @@ describe('Beat', function(){
 
     nagBeat.remove('increment');
 
-    //todo: implement: this would be the best way to determine if the beat is really gone but the angular-mock throws an error with this code
-    //waits(50);
-    //$timeout.flush();
+    waits(100);
+    $timeout.verifyNoPendingTasks();
 
     expect(nagBeat.activeBeatsCount()).toEqual(0);
   });
