@@ -22,6 +22,23 @@ angular.module('nag.beat', [])
        * @param {object} [options] Overriding options
        *   @param {boolean} [options.once=false] Whether the beat should auto remove when it triggers
        *   @param {boolean} [options.overwrite=false] Whether or not to overwrite an existing beat if one exists with the same name
+       *
+       * @example:
+       * Create a beat that runs every 4 seconds:
+       * ```javascript
+       * nagBest.add('myBeat', function(){
+       *   //do something
+       * }, 4000);
+       * ```
+       *
+       * Create a beat that only runs once:
+       * ```javascript
+       * nagBeat.add('myBeat', function() {
+       *   //do something
+       * }, 0, {
+       *   once: true
+       * });
+       * ```
        */
       add: function(name, callback, delay, options) {
         var self = this;
@@ -52,6 +69,12 @@ angular.module('nag.beat', [])
        * @method remove
        *
        * @param {string} name Beat name to remove
+       *
+       * @example:javascript
+       * Stop a beat from occurring:
+       * ```javascript
+       * nagBeat.remove('myBeat');
+       * ```
        */
       remove: function(name) {
         $timeout.cancel(beats[name]);
@@ -61,11 +84,26 @@ angular.module('nag.beat', [])
       /**
        * Returns the number of active beats
        *
-       * @method activeBeatsCount
+       * @method activeBeatCount
        *
        * @returns {number} The number of active beats
+       *
+       * @example:javascript
+       * ```javascript
+       * nagBest.add('myBeat', function(){
+       *   //do something
+       * }, 4000);
+       *
+       * nagBest.add('myBeat2', function(){
+       *   //do something
+       * }, 4000);
+       *
+       * // Returns:
+       * // 2
+       * nagBeat.activeBeatCount();
+       * ```
        */
-      activeBeatsCount: function() {
+      activeBeatCount: function() {
         return Object.keys(beats).length;
       }
     }

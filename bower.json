@@ -3,9 +3,7 @@
   "version": "0.2.1",
   "dependencies": {},
   "devDependencies": {
-    "angular": "1.0.6",
-    "angular-mocks": "1.0.6",
-    "unstable-angular-complete": "1.1.4",
+    "unstable-angular-complete": "1.2.0rc2",
     "lodash": "1.2.1"
   }
 }

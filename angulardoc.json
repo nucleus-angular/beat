@@ -1,0 +1,19 @@
+{
+  "name": "Nucleus Angular Beat",
+  "description": "Nucleus Angular Beat",
+  "version": "0.4.0",
+  "options": {
+    "outdir": "./docs",
+    "jsonDir": "json",
+    "webDir": "web",
+    "paths": [
+      "."
+    ],
+    "ignorePaths": [
+      "docs",
+      "components",
+      "karma",
+      "tests"
+    ]
+  }
+}

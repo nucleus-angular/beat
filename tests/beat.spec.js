@@ -23,13 +23,13 @@ describe('Beat', function(){
     $timeout.flush();
 
     expect(test).toEqual(2);
-    expect(nagBeat.activeBeatsCount()).toEqual(1);
+    expect(nagBeat.activeBeatCount()).toEqual(1);
 
     nagBeat.remove('increment');
 
     waits(100);
     $timeout.verifyNoPendingTasks();
 
-    expect(nagBeat.activeBeatsCount()).toEqual(0);
+    expect(nagBeat.activeBeatCount()).toEqual(0);
   });
 });
