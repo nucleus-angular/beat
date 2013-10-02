@@ -1,8 +1,30 @@
 /**
- * Ability to setup repeating $timeouts
+ * # Beat
+ *
+ * The beat service gives you an easy way to create a manage timeouts that should repeat itself.  This service using AngularJS's $timeout service so you don't have to worry about making sure AngularJS knows about the changes that happen within the timeout.
+ *
+ * Creating a timeout is quite simple, you just use the add method of nagBeat:
+ *
+ * ```javascript
+ * nagBeat.add('my-timeout-name', function() {
+ *   //do something
+ * }, 1000)
+ * ```
+ *
+ * This will execute that function every second.  It is important to note that it will wait for the callback to fully execute before start the timeout for the next call so that if a callback takes .5 a second, the time between the exection of the first time and second time will be 1.5 second (.5 second to wait for the first call to finish and 1 second to wait for the timeout).
+ *
+ * If you have a beat that you no longer wish to call you use the remove method of nagBeat with the name that used in the creation of the beat:
+ *
+ * ```javascript
+ * nagBeat.remove('my-timeout-name');
+ * ```
+ *
+ * This will prevent that callback from executing again.
  *
  * @module nag.beat
  * @ngservice nagBeat
+ *
+ * @todo: need to verify what happen when you add a beat that already exists
  */
 angular.module('nag.beat', [])
 .factory('nagBeat', [
