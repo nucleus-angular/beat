@@ -3,8 +3,8 @@
   "version": "0.2.1",
   "dependencies": {},
   "devDependencies": {
-    "angular": "1.2.0",
-    "angular-mocks": "1.2.0",
-    "lodash": "1.2.1"
+    "angular": "1.2.x",
+    "angular-mocks": "1.2.x",
+    "lodash": "2.x.x"
   }
 }
