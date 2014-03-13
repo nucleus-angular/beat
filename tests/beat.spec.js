@@ -8,28 +8,33 @@ describe('Beat', function(){
     $timeout = $injector.get('$timeout');
   }));
 
-  it('should be able to add and remove beat', function() {
+  it('should be able to add and remove beat', function(done) {
     var test = 0;
 
     nagBeat.add('increment', function() {
         test += 1;
     }, 50);
 
-    //wait and flush timeout 2 times
-    waits(50);
-    $timeout.flush();
+    //todo: try to see if there is a want to clean this up
+    setTimeout(function() {
+      $timeout.flush();
 
-    waits(50);
-    $timeout.flush();
+    setTimeout(function() {
+        $timeout.flush();
 
-    expect(test).toEqual(2);
-    expect(nagBeat.activeBeatCount()).toEqual(1);
+        expect(test).equal(2);
+        expect(nagBeat.activeBeatCount()).to.equal(1);
 
-    nagBeat.remove('increment');
+        nagBeat.remove('increment');
 
-    waits(100);
-    $timeout.verifyNoPendingTasks();
+        setTimeout(function() {
+          $timeout.verifyNoPendingTasks();
 
-    expect(nagBeat.activeBeatCount()).toEqual(0);
+          expect(test).equal(2);
+          expect(nagBeat.activeBeatCount()).equal(0);
+          done();
+        }, 100);
+      }, 50);
+    }, 50);
   });
 });
