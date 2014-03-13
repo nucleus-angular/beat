@@ -26,7 +26,7 @@
  *
  * @todo: need to verify what happen when you add a beat that already exists
  */
-angular.module('nag.beat', [])
+angular.module('nag.beat')
 .factory('nagBeat', [
   '$timeout',
   function($timeout) {

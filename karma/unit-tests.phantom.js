@@ -10,7 +10,8 @@ module.exports = function(config) {
       'components/angular/angular.js',
       'components/angular-mocks/angular-mocks.js',
       'tests/libraries/mocker.js',
-      '*.js',
+      'module.js',
+      'beat-factory.js',
       'tests/*.js'
     ]
   });
